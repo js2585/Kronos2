@@ -19,7 +19,6 @@ public class TankDrive extends DriveTrain {
   public TankDrive(TalonSRX leftMotor, TalonSRX rightMotor) {
     this.left = leftMotor;
     this.right = rightMotor;
-
   }
   // Put methods for controlling this subsystem
   // here. Call these from Commands.

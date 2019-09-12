@@ -3,12 +3,10 @@ package frc.robot.motor;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
-import edu.wpi.first.wpilibj.interfaces.Gyro;
 
 public class TalonSRX extends com.ctre.phoenix.motorcontrol.can.TalonSRX implements Motor {
 
     private static final int TIMEOUT_MS = 30;
-    Gyro gyro;
     public static final int CURRENT_LIMIT = 41;
     public static final int CURRENT_LIMIT_THRESHOLD = 41;
     public static final int LIMIT_TIMEOUT = 200; // ms

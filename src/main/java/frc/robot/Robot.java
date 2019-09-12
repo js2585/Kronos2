@@ -13,7 +13,11 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.motor.TalonSRX;
+import frc.robot.subsystems.TankDrive;
+import frc.robot.subsystems.Barrell;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,6 +29,10 @@ import frc.robot.subsystems.ExampleSubsystem;
 public class Robot extends TimedRobot {
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
+  public static DriveTrain drive;
+  public static TalonSRX rightMotor, leftMotor, barrellMotor, barrellLiftMotor;
+  public static Barrell barrell;
+  public static int numBarrells;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -39,6 +47,8 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
+    drive = new TankDrive(leftMotor, rightMotor);
+    barrell = new Barrell(barrellMotor, barrellLiftMotor, numBarrells);
   }
 
   /**
